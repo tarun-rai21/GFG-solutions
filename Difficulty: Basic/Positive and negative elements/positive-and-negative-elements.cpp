@@ -3,27 +3,23 @@
 class Solution {
   public:
     vector<int> arranged(vector<int>& arr) {
-        int n = arr.size();
-        vector<int> negative_nums;
-        vector<int> positive_nums;
+        int n= arr.size();
+        vector<int> result(n);
+
+        int pos = 0;
+        int neg = 1;
 
         for(int i=0; i<n; i++){
-            if(arr[i]<0){
-                negative_nums.push_back(arr[i]);
+            if(arr[i]>0){
+                result[pos] = arr[i];
+                pos+=2;
             }
             else{
-                positive_nums.push_back(arr[i]);
+                result[neg] = arr[i];
+                neg+=2;
             }
         }
-        for(int i=0; i<n; i++){
-            if(i%2==0){
-                arr[i] = positive_nums[i/2];
-            }
-            else{
-                arr[i] = negative_nums[i/2];
-            }
-        }
-    return arr;
+        return result;
         
     }
 };
