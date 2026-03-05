@@ -1,8 +1,10 @@
+//solved by Tarun
+
 class Solution {
   public:
     int getSecondLargest(vector<int> &arr) {
-        // code here
-         int largest = INT_MIN;
+      
+        int largest = INT_MIN;
         int second_largest = INT_MIN;
         
         int n=arr.size();
