@@ -1,25 +1,20 @@
-// User function template for C++
-
 class Solution {
-  public:
+public:
     void segregate0and1(vector<int> &arr) {
-        
-        int n = arr.size();
         int left = 0;
-        int right = n-1;
-        
-        while(left<right){
-            if(arr[left]==0 & arr[right]==1){
-                left++;
-                right--;
-            }
-            else if(arr[left]==1 & arr[right]==1){
-                right--;
-            }
-            else if(arr[left]==0 & arr[right]==0){
+        int right = arr.size() - 1;
+
+        while (left < right) {
+            // Move left if already 0
+            if (arr[left] == 0) {
                 left++;
             }
-            else{
+            // Move right if already 1
+            else if (arr[right] == 1) {
+                right--;
+            }
+            // Swap when left = 1 and right = 0
+            else {
                 swap(arr[left], arr[right]);
                 left++;
                 right--;
