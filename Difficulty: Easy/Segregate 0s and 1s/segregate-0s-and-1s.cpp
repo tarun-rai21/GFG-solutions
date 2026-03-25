@@ -3,23 +3,27 @@
 class Solution {
   public:
     void segregate0and1(vector<int> &arr) {
-        // code here
         
-        int low = 0;
-        int high = arr.size()-1;
+        int n = arr.size();
+        int left = 0;
+        int right = n-1;
         
-        while(low<high){
-            if(arr[low]==0) low++;
-            
-            else if(arr[high]==1) high--;
-            
-            else {
-            // arr[low] == 1 && arr[high] == 0
-            swap(arr[low], arr[high]);
-            low++;
-            high--;
-        }
-            
+        while(left<right){
+            if(arr[left]==0 & arr[right]==1){
+                left++;
+                right--;
+            }
+            else if(arr[left]==1 & arr[right]==1){
+                right--;
+            }
+            else if(arr[left]==0 & arr[right]==0){
+                left++;
+            }
+            else{
+                swap(arr[left], arr[right]);
+                left++;
+                right--;
+            }
         }
     }
 };
