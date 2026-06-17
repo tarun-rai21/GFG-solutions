@@ -7,7 +7,6 @@ class Solution {
         stack<int> st;
         
         for(int i=0; i<n; i++){
-            
             while(!st.empty() && arr[st.top()]>arr[i]){
                 result[st.top()] = arr[i];
                 st.pop();
